@@ -47,7 +47,10 @@ def correct(text: str) -> Tuple[str, List[str]]:
         before = cleaned
         cleaned = re.sub(pattern, fix, cleaned, flags=re.IGNORECASE)
         if cleaned != before:
-            corrections.append(f"typo: {pattern.strip('\\b')} → {fix}")
+            # Strip \b markers from pattern for display. Done outside the
+            # f-string because Python 3.9-3.11 disallow backslashes in f-strings.
+            display = pattern.replace("\\b", "")
+            corrections.append(f"typo: {display} → {fix}")
 
     # 3. Strip conversational filler from edges (iterate until stable)
     trimmed_any = False
