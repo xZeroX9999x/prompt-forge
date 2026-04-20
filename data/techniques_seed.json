@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Chain of Thought",
+    "description": "Ask the model to reason step by step before producing the final answer. Improves performance on multi-step reasoning.",
+    "when_to_use": "Use when the task involves math, logic, multi-step reasoning, or non-obvious decomposition.",
+    "snippet": "Before answering, reason step-by-step inside <thinking></thinking> tags. Then give the final answer in <answer></answer>.",
+    "domains": ["code", "analysis", "research", "any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Few-Shot Examples",
+    "description": "Provide 2-5 input/output examples that demonstrate the desired behavior. Dramatically improves format adherence.",
+    "when_to_use": "Use when the output format is specific or unusual, or when instructions alone are insufficient.",
+    "snippet": "Here are examples of good outputs:\n<example><input>...</input><output>...</output></example>",
+    "domains": ["writing", "code", "creative", "any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Self-Critique Loop",
+    "description": "After producing an answer, ask the model to critique it as if it were a hostile reviewer, then revise. Boosts quality on open-ended tasks.",
+    "when_to_use": "Use on high-stakes open-ended outputs: essays, designs, strategies.",
+    "snippet": "First draft your answer. Then critique it as a hostile expert reviewer. Then produce a revised final version that addresses the critique.",
+    "domains": ["writing", "analysis", "creative", "any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Role Assignment",
+    "description": "Assign a specific expert role to the model rather than asking generically. Grounds the response in domain knowledge.",
+    "when_to_use": "Use when the task benefits from domain expertise (technical, creative, analytical).",
+    "snippet": "You are a senior [specific role] with [N] years of experience in [specific domain].",
+    "domains": ["any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "XML Tag Structuring",
+    "description": "Wrap different parts of the prompt (context, task, examples, constraints) in XML tags. Claude models particularly are trained on XML and respect it strongly.",
+    "when_to_use": "Use for any prompt longer than a few sentences or with multiple distinct sections.",
+    "snippet": "<context>...</context>\n<task>...</task>\n<constraints>...</constraints>",
+    "domains": ["any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Output Prefilling",
+    "description": "Start the assistant's response for it (e.g., with '{' to force JSON). Extremely effective format control.",
+    "when_to_use": "Use when you need strict output format (JSON, specific template). Most effective via API.",
+    "snippet": "Begin your response with: {",
+    "domains": ["code", "analysis", "any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Explicit Uncertainty Permission",
+    "description": "Tell the model it is allowed — encouraged — to say 'I don't know'. Measurably reduces hallucination.",
+    "when_to_use": "Use on factual, research, or high-stakes tasks where being wrong is worse than being incomplete.",
+    "snippet": "If you are uncertain about any claim, say so explicitly. It is better to admit you don't know than to guess.",
+    "domains": ["research", "analysis", "code", "any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Negative Examples",
+    "description": "Show examples of WRONG outputs alongside right ones. Narrows the error space.",
+    "when_to_use": "Use when the model consistently makes a specific type of mistake despite positive instructions.",
+    "snippet": "<bad_example>...</bad_example> — do NOT do this because [reason].",
+    "domains": ["writing", "code", "any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Least-to-Most Decomposition",
+    "description": "Instruct the model to first list sub-problems, then solve them in order, then integrate. Helps on complex multi-part tasks.",
+    "when_to_use": "Use when the task has clearly separable sub-problems.",
+    "snippet": "First list the sub-problems. Then solve each one in order. Finally integrate into the complete answer.",
+    "domains": ["analysis", "code", "any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Confidence Tagging",
+    "description": "Require the model to tag each non-trivial claim with [fact], [inference], [opinion], or [assume]. Forces epistemic honesty.",
+    "when_to_use": "Use on research, analysis, and fact-heavy outputs.",
+    "snippet": "Tag every non-trivial claim with: [fact] / [inference] / [opinion] / [assume].",
+    "domains": ["research", "analysis", "any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Audience Specification",
+    "description": "State exactly who will read the output. Controls tone, depth, and vocabulary.",
+    "when_to_use": "Always — but especially for writing, explanations, and persuasion.",
+    "snippet": "The reader is: [specific description — role, expertise level, what they care about].",
+    "domains": ["writing", "research", "personal", "any"],
+    "source_url": "seed"
+  },
+  {
+    "name": "Stop Conditions",
+    "description": "Tell the model when to stop and ask instead of pushing forward. Prevents hallucinated over-commitment.",
+    "when_to_use": "Use on tasks where bad assumptions compound (multi-step code, strategic decisions).",
+    "snippet": "Stop and ask me if: (1) critical info is missing, (2) two paths have very different consequences.",
+    "domains": ["code", "analysis", "personal", "any"],
+    "source_url": "seed"
+  }
+]
