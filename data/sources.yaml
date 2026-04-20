@@ -1,0 +1,36 @@
+# Prompt Forge — sources for `forge learn`
+#
+# Any public URL that returns HTML or Markdown works.
+# The scraper walks headings (h2/h3 in HTML, ## / ### in Markdown) and
+# treats them as technique names, with the following text as the description.
+#
+# Format:
+#   - url: https://...
+#     domains: [list of applicable domains]
+#       # code writing analysis creative research personal any
+#
+# ADD YOUR OWN URLs BELOW — the more sources, the richer your knowledge base.
+
+sources:
+  # DAIR-AI Prompt Engineering Guide (comprehensive, Markdown)
+  - url: https://raw.githubusercontent.com/dair-ai/Prompt-Engineering-Guide/main/guides/prompts-advanced-usage.md
+    domains: [any]
+  - url: https://raw.githubusercontent.com/dair-ai/Prompt-Engineering-Guide/main/guides/prompts-reliability.md
+    domains: [any, research, analysis]
+  - url: https://raw.githubusercontent.com/dair-ai/Prompt-Engineering-Guide/main/guides/prompts-intro.md
+    domains: [any]
+
+  # OpenAI Cookbook
+  - url: https://raw.githubusercontent.com/openai/openai-cookbook/main/articles/techniques_to_improve_reliability.md
+    domains: [code, analysis, any]
+
+  # HTML sources (fallbacks if raw.github is blocked on your network)
+  - url: https://www.promptingguide.ai/techniques
+    domains: [any]
+
+  - url: https://learnprompting.org/docs/basics/prompt_engineering
+    domains: [any]
+
+  # ─── Add your own sources ───────────────────────────────────────────
+  # - url: https://some-blog.com/my-favorite-prompt-techniques
+  #   domains: [writing, any]
